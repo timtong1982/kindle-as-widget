@@ -1,22 +1,21 @@
-import * as React from 'React';
-import { appReducer, initialAppState } from './appReducer';
+import * as React from 'React'
+import { appReducer, initialAppState } from './appReducer'
 
-import { createContext } from 'use-context-selector';
+import { createContext } from 'use-context-selector'
 
+const AppContext = createContext<[{ app: ReturnType<typeof appReducer> }, any]>(
+    [{ app: initialAppState }, {}]
+)
 
-const AppContext = createContext<[{app:ReturnType<typeof appReducer>}, any]>([{app: initialAppState}, {}]);
-
-const AppContextProvider = (props: React.PropsWithChildren<unknown>) => {    
-    const  [state, dispatch] = React.useReducer(appReducer, initialAppState);
-    const {children} = props;
+const AppContextProvider = (props: React.PropsWithChildren<unknown>) => {
+    const [state, dispatch] = React.useReducer(appReducer, initialAppState)
+    const { children } = props
 
     return (
-        <AppContext.Provider value={[{app: state}, dispatch]}>{children}</AppContext.Provider> 
+        <AppContext.Provider value={[{ app: state }, dispatch]}>
+            {children}
+        </AppContext.Provider>
     )
 }
 
-
-export {
-    AppContext,
-    AppContextProvider
-}
+export { AppContext, AppContextProvider }

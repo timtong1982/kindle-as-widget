@@ -1,3 +1,4 @@
+import { Second } from './second';
 
 
 type ActionType<T> = {
@@ -77,9 +78,25 @@ const appReducer = createReducer(initialAppState, {
         };
     },
     [appActionTypes.SET_TICK]: (state:AppReducerType, action : InferActionType<typeof appActions, 'setTick'>)=>{
+        let nextSecond = state.second+1;
+        let nextMinute = state.minute;
+        let nextHour = state.hour;
+        if(nextSecond>59){
+           nextSecond %= 60;
+           nextMinute += 1;
+           if(nextMinute>59){
+               nextMinute %= 60;
+               nextHour+=1;
+               if(nextHour>23){
+                   nextHour%=24
+               }
+           } 
+        }
         return {
             ...state,
-            s: state.second+1
+            hour: nextHour,
+            minute: nextMinute,
+            second: nextSecond
         };
     }
 })

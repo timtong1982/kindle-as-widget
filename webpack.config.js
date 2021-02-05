@@ -24,7 +24,7 @@ const getConfig = (env) => {
             publicPath: `http://${devServerHost}:${devServerPort}/`,
         },
         resolve: {
-            modules: ['node_modules', root('./src')],
+            modules: ['node_modules', root('./src'), root('./node_modules')],
             extensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.mjsx'],
         },
         module: {

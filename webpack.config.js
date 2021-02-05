@@ -21,7 +21,6 @@ const getConfig = (env) => {
             path: root('./dist'),
             filename: 'app.bundle.js',
             chunkFilename: '[id].js',
-            publicPath: `http://${devServerHost}:${devServerPort}/`,
         },
         resolve: {
             modules: ['node_modules', root('./src')],
@@ -58,6 +57,7 @@ const getConfig = (env) => {
     };
 
     if (runDevServer) {
+        config.output.publicPath = `http://${devServerHost}:${devServerPort}/`;
         config.devServer = {
             clientLogLevel: 'none',
             hot: true,

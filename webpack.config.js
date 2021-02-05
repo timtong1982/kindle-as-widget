@@ -1,17 +1,18 @@
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const { root } = require('./utils')
+const { root } = require('./utils');
 
-const devServerHost = '127.0.0.1'
-const devServerPort = 60001
+const devServerHost = '127.0.0.1';
+const devServerPort = 60001;
 
 const getConfig = (env) => {
     if (!env) {
-        env = {}
+        env = {};
     }
-    const isProd = /true/i.test(env.isProd)
-    const runDevServer = /true/i.test(env.runDevServer)
+    const isProd = /true/i.test(env.isProd);
+    const runDevServer = /true/i.test(env.runDevServer);
 
     const config = {
         mode: isProd ? 'production' : 'development',
@@ -54,7 +55,7 @@ const getConfig = (env) => {
                 inject: 'body',
             }),
         ],
-    }
+    };
 
     if (runDevServer) {
         config.devServer = {
@@ -78,10 +79,10 @@ const getConfig = (env) => {
                 'Access-Control-Allow-Headers':
                     'X-Requested-With, content-type, Authorization',
             },
-        }
+        };
     }
 
-    return config
-}
+    return config;
+};
 
-module.exports = getConfig
+module.exports = getConfig;

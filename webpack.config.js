@@ -50,18 +50,12 @@ const getConfig = (env) => {
       new HtmlWebpackPlugin({
         title: 'Kindle widget',
         filename: 'index.html',
-        // inject: 'body',
+        inject: 'body',
       }),
     ],
   };
 
   if (runDevServer) {
-    config.entry = [
-      ...config.entry,
-      'react-hot-loader/patch',
-      `webpack-dev-server/client?http://${devServerHost}:${devServerPort}`,
-      'webpack/hot/only-dev-server',
-    ];
     config.devServer = {
       clientLogLevel: 'none',
       hot: true,

@@ -1,34 +1,28 @@
 {
-  "name": "hello",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "hello",
+    "version": "0.1.0",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "dev": "webpack serve --config ./webpack.config.js --env isProd=false --env runDevServer=true --progress --hot --inline",
+        "build": "webpack --config ./webpack.config.js --env isProd=true --env runDevServer=false --bail --progress"
+    },
+    "dependencies": {
+        "react": "17.0.1",
+        "react-dom": "17.0.1",
+        "use-context-selector": "1.3.7"
+    },
+    "devDependencies": {
+        "@types/react": "17.0.1",
+        "@types/react-dom": "17.0.0",
+        "clean-webpack-plugin": "3.0.0",
+        "html-webpack-plugin": "5.0.0",
+        "prettier": "2.2.1",
+        "react-hot-loader": "4.13.0",
+        "ts-loader": "8.0.15",
+        "typescript": "4.1.3",
+        "webpack": "5.20.2",
+        "webpack-cli": "4.5.0",
+        "webpack-dev-server": "3.11.2"
+    }
 }

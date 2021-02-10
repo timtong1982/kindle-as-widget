@@ -29,21 +29,30 @@ const getConfig = (env) => {
         module: {
             rules: [
                 {
-                    test: /\.tsx?$/,
+                    test: /\.(ts|js)x?$/,
+                    exclude: /node_modules/,
                     use: [
                         {
-                            loader: 'ts-loader',
-                            options: {
-                                configFile: root('tsconfig.json'),
-                                transpileOnly: true,
-                                projectReferences: true,
-                                compilerOptions: {
-                                    declarationMap: false,
-                                },
-                            },
+                            loader: 'babel-loader',
                         },
                     ],
                 },
+                // {
+                //     test: /\.tsx?$/,
+                //     use: [
+                //         {
+                //             loader: 'ts-loader',
+                //             options: {
+                //                 configFile: root('tsconfig.json'),
+                //                 transpileOnly: true,
+                //                 projectReferences: true,
+                //                 compilerOptions: {
+                //                     declarationMap: false,
+                //                 },
+                //             },
+                //         },
+                //     ],
+                // },
             ],
         },
         plugins: [

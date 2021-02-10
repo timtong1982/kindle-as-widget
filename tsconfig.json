@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "ES2020",
-        "target": "ES3",
+        "target": "ESNext",
         "lib": ["ES2017", "DOM"],
         "sourceMap": true,
         "noImplicitAny": true,
@@ -10,7 +10,9 @@
         "moduleResolution": "Node",
         "outDir": "./tsc-out/",
         "typeRoots": ["node_modules/@types"],
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": true
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"]
